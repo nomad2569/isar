@@ -1,8 +1,8 @@
 // ignore_for_file: public_member_api_docs, non_constant_identifier_names
 
-import 'dart:typed_data';
-
+import 'dart:js_interop_unsafe';
 import 'dart:js_interop';
+import 'dart:typed_data';
 
 @JS()
 @staticInterop
@@ -47,11 +47,14 @@ class JSIsar {}
 extension JSIsarX on JSIsar {
   external JsMemory get memory;
 
-  Uint8List get u8Heap => memory.buffer.toDart.asUint8List();
+  Uint8List get u8Heap =>
+      (memory.buffer.dartify()! as ByteBuffer).asUint8List();
 
-  Uint16List get u16Heap => memory.buffer.toDart.asUint16List();
+  Uint16List get u16Heap =>
+      (memory.buffer.dartify()! as ByteBuffer).asUint16List();
 
-  Uint32List get u32Heap => memory.buffer.toDart.asUint32List();
+  Uint32List get u32Heap =>
+      (memory.buffer.dartify()! as ByteBuffer).asUint32List();
 
   external int malloc(int byteCount);
 
