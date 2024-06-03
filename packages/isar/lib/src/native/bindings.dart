@@ -38,6 +38,7 @@ class IsarCoreBindings {
   late final _isar_string = _isar_stringPtr.asFunction<
       ffi.Pointer<CString> Function(ffi.Pointer<ffi.Uint16>, int)>();
 
+  @pragma('vm:entry-point')
   void isar_buffer_free(
     ffi.Pointer<ffi.Uint8> value,
     int capacity,
@@ -55,6 +56,7 @@ class IsarCoreBindings {
   late final _isar_buffer_free = _isar_buffer_freePtr
       .asFunction<void Function(ffi.Pointer<ffi.Uint8>, int)>();
 
+  @pragma('vm:entry-point')
   int isar_get_error(
     ffi.Pointer<ffi.Pointer<ffi.Uint8>> value,
   ) {
@@ -70,6 +72,7 @@ class IsarCoreBindings {
   late final _isar_get_error = _isar_get_errorPtr
       .asFunction<int Function(ffi.Pointer<ffi.Pointer<ffi.Uint8>>)>();
 
+  @pragma('vm:entry-point')
   ffi.Pointer<CIsarReader> isar_cursor_next(
     ffi.Pointer<CIsarCursor> cursor,
     int id,
@@ -90,6 +93,7 @@ class IsarCoreBindings {
       ffi.Pointer<CIsarReader> Function(
           ffi.Pointer<CIsarCursor>, int, ffi.Pointer<CIsarReader>)>();
 
+  @pragma('vm:entry-point')
   void isar_cursor_free(
     ffi.Pointer<CIsarCursor> cursor,
     ffi.Pointer<CIsarReader> reader,
@@ -125,6 +129,7 @@ class IsarCoreBindings {
       ffi.Pointer<CIsarReader> Function(
           ffi.Pointer<CIsarQueryCursor>, ffi.Pointer<CIsarReader>)>();
 
+  @pragma('vm:entry-point')
   void isar_query_cursor_free(
     ffi.Pointer<CIsarQueryCursor> cursor,
     ffi.Pointer<CIsarReader> reader,

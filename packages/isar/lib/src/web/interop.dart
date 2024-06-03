@@ -46,11 +46,11 @@ class JSIsar {}
 extension JSIsarX on JSIsar {
   external JsMemory get memory;
 
-  Uint8List get u8Heap => memory.buffer.asUint8List();
+  Uint8List get u8Heap => memory.buffer.toDart.asUint8List();
 
-  Uint16List get u16Heap => memory.buffer.asUint16List();
+  Uint16List get u16Heap => memory.buffer.toDart.asUint16List();
 
-  Uint32List get u32Heap => memory.buffer.asUint32List();
+  Uint32List get u32Heap => memory.buffer.toDart.asUint32List();
 
   external int malloc(int byteCount);
 
@@ -64,5 +64,5 @@ class JsMemory {}
 @JS()
 @staticInterop
 extension on JsMemory {
-  external ByteBuffer get buffer;
+  external JSArrayBuffer get buffer;
 }

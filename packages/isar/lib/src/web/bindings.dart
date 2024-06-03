@@ -15,20 +15,20 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<ffi.Uint16> chars,
     int length,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<ffi.Uint8>, ffi.Uint32)>(
       symbol: 'isar_buffer_free')
   external void isar_buffer_free(
     ffi.Pointer<ffi.Uint8> value,
     int capacity,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Uint32 Function(ffi.Pointer<ffi.Pointer<ffi.Uint8>>)>(
       symbol: 'isar_get_error')
   external int isar_get_error(
     ffi.Pointer<ffi.Pointer<ffi.Uint8>> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CIsarReader> Function(ffi.Pointer<CIsarCursor>, IsarI64,
           ffi.Pointer<CIsarReader>)>(symbol: 'isar_cursor_next')
@@ -37,7 +37,7 @@ extension IsarBindingsX on JSIsar {
     int id,
     ffi.Pointer<CIsarReader> old_reader,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarCursor>,
           ffi.Pointer<CIsarReader>)>(symbol: 'isar_cursor_free')
@@ -45,7 +45,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarCursor> cursor,
     ffi.Pointer<CIsarReader> reader,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CIsarReader> Function(ffi.Pointer<CIsarQueryCursor>,
           ffi.Pointer<CIsarReader>)>(symbol: 'isar_query_cursor_next')
@@ -53,7 +53,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarQueryCursor> cursor,
     ffi.Pointer<CIsarReader> old_reader,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarQueryCursor>,
           ffi.Pointer<CIsarReader>)>(symbol: 'isar_query_cursor_free')
@@ -61,19 +61,19 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarQueryCursor> cursor,
     ffi.Pointer<CIsarReader> reader,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<ffi.Void>)>(
       symbol: 'isar_connect_dart_api')
   external void isar_connect_dart_api(
     ffi.Pointer<ffi.Void> ptr,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CFilter> Function(ffi.Uint16)>(
       symbol: 'isar_filter_is_null')
   external ffi.Pointer<CFilter> isar_filter_is_null(
     int property_index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_equal')
@@ -82,7 +82,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_greater')
@@ -91,7 +91,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_greater_or_equal')
@@ -100,7 +100,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_less')
@@ -109,7 +109,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_less_or_equal')
@@ -118,7 +118,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Pointer<CIsarValue>, ffi.Bool)>(symbol: 'isar_filter_between')
@@ -128,7 +128,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> upper,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_string_starts_with')
@@ -137,7 +137,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_string_ends_with')
@@ -146,7 +146,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_string_contains')
@@ -155,7 +155,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CIsarValue>,
           ffi.Bool)>(symbol: 'isar_filter_string_matches')
@@ -164,14 +164,14 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CFilter> Function(ffi.Uint16, ffi.Pointer<CFilter>)>(
       symbol: 'isar_filter_nested')
   external ffi.Pointer<CFilter> isar_filter_nested(
     int property_index,
     ffi.Pointer<CFilter> filter,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Pointer<ffi.Pointer<CFilter>>,
           ffi.Uint32)>(symbol: 'isar_filter_and')
@@ -179,7 +179,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<ffi.Pointer<CFilter>> filters,
     int lenght,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CFilter> Function(ffi.Pointer<ffi.Pointer<CFilter>>,
           ffi.Uint32)>(symbol: 'isar_filter_or')
@@ -187,13 +187,13 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<ffi.Pointer<CFilter>> filters,
     int lenght,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CFilter> Function(ffi.Pointer<CFilter>)>(
       symbol: 'isar_filter_not')
   external ffi.Pointer<CFilter> isar_filter_not(
     ffi.Pointer<CFilter> filter,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -208,14 +208,14 @@ extension IsarBindingsX on JSIsar {
     int count,
     ffi.Pointer<ffi.Pointer<CIsarWriter>> insert,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Uint8 Function(ffi.Pointer<CIsarWriter>, IsarI64)>(
       symbol: 'isar_insert_save')
   external int isar_insert_save(
     ffi.Pointer<CIsarWriter> insert,
     int id,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(ffi.Pointer<CIsarWriter>,
           ffi.Pointer<ffi.Pointer<CIsarTxn>>)>(symbol: 'isar_insert_finish')
@@ -223,23 +223,23 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarWriter> insert,
     ffi.Pointer<ffi.Pointer<CIsarTxn>> txn,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<CIsarWriter>)>(
       symbol: 'isar_insert_abort')
   external void isar_insert_abort(
     ffi.Pointer<CIsarWriter> insert,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<ffi.Char> Function()>(symbol: 'isar_version')
   external ffi.Pointer<ffi.Char> isar_version();
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CIsarInstance> Function(ffi.Uint32, ffi.Bool)>(
       symbol: 'isar_get_instance')
   external ffi.Pointer<CIsarInstance> isar_get_instance(
     int instance_id,
     bool sqlite,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<ffi.Pointer<CIsarInstance>>,
@@ -266,7 +266,7 @@ extension IsarBindingsX on JSIsar {
     int compact_min_bytes,
     double compact_min_ratio,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint32 Function(ffi.Pointer<CIsarInstance>,
           ffi.Pointer<ffi.Pointer<ffi.Uint8>>)>(symbol: 'isar_get_name')
@@ -274,7 +274,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarInstance> isar,
     ffi.Pointer<ffi.Pointer<ffi.Uint8>> name,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint32 Function(ffi.Pointer<CIsarInstance>,
           ffi.Pointer<ffi.Pointer<ffi.Uint8>>)>(symbol: 'isar_get_dir')
@@ -282,7 +282,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarInstance> isar,
     ffi.Pointer<ffi.Pointer<ffi.Uint8>> dir,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Pointer<CString>)>(
       symbol: 'isar_change_encryption_key')
@@ -290,7 +290,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarInstance> isar,
     ffi.Pointer<CString> encryption_key,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -301,7 +301,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<ffi.Pointer<CIsarTxn>> txn,
     bool write,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(ffi.Pointer<CIsarInstance>,
           ffi.Pointer<CIsarTxn>)>(symbol: 'isar_txn_commit')
@@ -309,7 +309,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarInstance> isar,
     ffi.Pointer<CIsarTxn> txn,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Void Function(ffi.Pointer<CIsarInstance>, ffi.Pointer<CIsarTxn>)>(
       symbol: 'isar_txn_abort')
@@ -317,14 +317,14 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarInstance> isar,
     ffi.Pointer<CIsarTxn> txn,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<IsarI64 Function(ffi.Pointer<CIsarInstance>, ffi.Uint16)>(
       symbol: 'isar_auto_increment')
   external int isar_auto_increment(
     ffi.Pointer<CIsarInstance> isar,
     int collection_index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -337,7 +337,7 @@ extension IsarBindingsX on JSIsar {
     int collection_index,
     ffi.Pointer<ffi.Pointer<CIsarCursor>> cursor,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Pointer<CIsarTxn>,
           ffi.Uint16, IsarI64, ffi.Pointer<ffi.Bool>)>(symbol: 'isar_delete')
@@ -348,7 +348,7 @@ extension IsarBindingsX on JSIsar {
     int id,
     ffi.Pointer<ffi.Bool> deleted,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Pointer<CIsarTxn>,
           ffi.Uint16, ffi.Pointer<ffi.Uint32>)>(symbol: 'isar_count')
@@ -358,7 +358,7 @@ extension IsarBindingsX on JSIsar {
     int collection_index,
     ffi.Pointer<ffi.Uint32> count,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Pointer<CIsarTxn>,
           ffi.Uint16)>(symbol: 'isar_clear')
@@ -367,7 +367,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarTxn> txn,
     int collection_index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint32 Function(ffi.Pointer<CIsarInstance>, ffi.Pointer<CIsarTxn>,
           ffi.Uint16, ffi.Bool)>(symbol: 'isar_get_size')
@@ -377,7 +377,7 @@ extension IsarBindingsX on JSIsar {
     int collection_index,
     bool include_indexes,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -392,7 +392,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CString> json,
     ffi.Pointer<ffi.Uint32> count,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Pointer<CString>)>(
       symbol: 'isar_copy')
@@ -400,7 +400,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarInstance> isar,
     ffi.Pointer<CString> path,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(ffi.Pointer<CIsarInstance>,
           ffi.Pointer<CIsarTxn>)>(symbol: 'isar_verify')
@@ -408,14 +408,14 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarInstance> isar,
     ffi.Pointer<CIsarTxn> txn,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Bool)>(
       symbol: 'isar_close')
   external int isar_close(
     ffi.Pointer<CIsarInstance> isar,
     bool delete_,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Uint16,
               ffi.Pointer<ffi.Pointer<CIsarQueryBuilder>>)>(
@@ -425,7 +425,7 @@ extension IsarBindingsX on JSIsar {
     int collection_index,
     ffi.Pointer<ffi.Pointer<CIsarQueryBuilder>> query_builder,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarQueryBuilder>,
           ffi.Pointer<CFilter>)>(symbol: 'isar_query_set_filter')
@@ -433,7 +433,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarQueryBuilder> builder,
     ffi.Pointer<CFilter> filter,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarQueryBuilder>, ffi.Uint16, ffi.Bool,
           ffi.Bool)>(symbol: 'isar_query_add_sort')
@@ -443,7 +443,7 @@ extension IsarBindingsX on JSIsar {
     bool ascending,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarQueryBuilder>, ffi.Uint16,
           ffi.Bool)>(symbol: 'isar_query_add_distinct')
@@ -452,13 +452,13 @@ extension IsarBindingsX on JSIsar {
     int property_index,
     bool case_sensitive,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CIsarQuery> Function(ffi.Pointer<CIsarQueryBuilder>)>(
       symbol: 'isar_query_build')
   external ffi.Pointer<CIsarQuery> isar_query_build(
     ffi.Pointer<CIsarQueryBuilder> builder,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -475,7 +475,7 @@ extension IsarBindingsX on JSIsar {
     int offset,
     int limit,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -492,7 +492,7 @@ extension IsarBindingsX on JSIsar {
     int property_index,
     ffi.Pointer<ffi.Pointer<CIsarValue>> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -509,68 +509,68 @@ extension IsarBindingsX on JSIsar {
     int limit,
     ffi.Pointer<ffi.Uint32> count,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<CIsarQuery>)>(
       symbol: 'isar_query_free')
   external void isar_query_free(
     ffi.Pointer<CIsarQuery> query,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<IsarI64 Function(ffi.Pointer<CIsarReader>)>(
       symbol: 'isar_read_id')
   external int isar_read_id(
     ffi.Pointer<CIsarReader> reader,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Uint8 Function(ffi.Pointer<CIsarReader>, ffi.Uint32)>(
       symbol: 'isar_read_null')
   external int isar_read_null(
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Uint8 Function(ffi.Pointer<CIsarReader>, ffi.Uint32)>(
       symbol: 'isar_read_bool')
   external int isar_read_bool(
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Uint8 Function(ffi.Pointer<CIsarReader>, ffi.Uint32)>(
       symbol: 'isar_read_byte')
   external int isar_read_byte(
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Int32 Function(ffi.Pointer<CIsarReader>, ffi.Uint32)>(
       symbol: 'isar_read_int')
   external int isar_read_int(
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Float Function(ffi.Pointer<CIsarReader>, ffi.Uint32)>(
       symbol: 'isar_read_float')
   external double isar_read_float(
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<IsarI64 Function(ffi.Pointer<CIsarReader>, ffi.Uint32)>(
       symbol: 'isar_read_long')
   external int isar_read_long(
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Double Function(ffi.Pointer<CIsarReader>, ffi.Uint32)>(
       symbol: 'isar_read_double')
   external double isar_read_double(
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint32 Function(
           ffi.Pointer<CIsarReader>,
@@ -583,7 +583,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<ffi.Pointer<ffi.Uint8>> value,
     ffi.Pointer<ffi.Bool> is_ascii,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CIsarReader> Function(
           ffi.Pointer<CIsarReader>, ffi.Uint32)>(symbol: 'isar_read_object')
@@ -591,7 +591,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarReader> reader,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint32 Function(ffi.Pointer<CIsarReader>, ffi.Uint32,
           ffi.Pointer<ffi.Pointer<CIsarReader>>)>(symbol: 'isar_read_list')
@@ -600,7 +600,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     ffi.Pointer<ffi.Pointer<CIsarReader>> list_reader,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint32 Function(
           ffi.Pointer<CIsarReader>,
@@ -611,13 +611,13 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<ffi.Pointer<ffi.Uint8>> buffer,
     ffi.Pointer<ffi.Uint32> buffer_size,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<CIsarReader>)>(
       symbol: 'isar_read_free')
   external void isar_read_free(
     ffi.Pointer<CIsarReader> reader,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -634,7 +634,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarUpdate> update,
     ffi.Pointer<ffi.Bool> updated,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -653,10 +653,10 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarUpdate> update,
     ffi.Pointer<ffi.Uint32> updated,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CIsarUpdate> Function()>(symbol: 'isar_update_new')
   external ffi.Pointer<CIsarUpdate> isar_update_new();
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarUpdate>, ffi.Uint16,
           ffi.Pointer<CIsarValue>)>(symbol: 'isar_update_add_value')
@@ -665,49 +665,49 @@ extension IsarBindingsX on JSIsar {
     int property_index,
     ffi.Pointer<CIsarValue> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CIsarValue> Function(ffi.Bool)>(
       symbol: 'isar_value_bool')
   external ffi.Pointer<CIsarValue> isar_value_bool(
     bool value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CIsarValue> Function(IsarI64)>(
       symbol: 'isar_value_integer')
   external ffi.Pointer<CIsarValue> isar_value_integer(
     int value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CIsarValue> Function(ffi.Double)>(
       symbol: 'isar_value_real')
   external ffi.Pointer<CIsarValue> isar_value_real(
     double value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Pointer<CIsarValue> Function(ffi.Pointer<CString>)>(
       symbol: 'isar_value_string')
   external ffi.Pointer<CIsarValue> isar_value_string(
     ffi.Pointer<CString> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Uint8 Function(ffi.Pointer<CIsarValue>)>(
       symbol: 'isar_value_get_bool')
   external int isar_value_get_bool(
     ffi.Pointer<CIsarValue> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<IsarI64 Function(ffi.Pointer<CIsarValue>)>(
       symbol: 'isar_value_get_integer')
   external int isar_value_get_integer(
     ffi.Pointer<CIsarValue> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Double Function(ffi.Pointer<CIsarValue>)>(
       symbol: 'isar_value_get_real')
   external double isar_value_get_real(
     ffi.Pointer<CIsarValue> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint32 Function(ffi.Pointer<CIsarValue>,
           ffi.Pointer<ffi.Pointer<ffi.Uint8>>)>(symbol: 'isar_value_get_string')
@@ -715,13 +715,13 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarValue> value,
     ffi.Pointer<ffi.Pointer<ffi.Uint8>> str,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<CIsarValue>)>(
       symbol: 'isar_value_free')
   external void isar_value_free(
     ffi.Pointer<CIsarValue> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Uint8 Function(ffi.Pointer<CIsarInstance>, ffi.Uint16, DartPort,
               ffi.Pointer<ffi.Pointer<CWatchHandle>>)>(
@@ -732,7 +732,7 @@ extension IsarBindingsX on JSIsar {
     int port,
     ffi.Pointer<ffi.Pointer<CWatchHandle>> handle,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -747,7 +747,7 @@ extension IsarBindingsX on JSIsar {
     int port,
     ffi.Pointer<ffi.Pointer<CWatchHandle>> handle,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Uint8 Function(
           ffi.Pointer<CIsarInstance>,
@@ -760,20 +760,20 @@ extension IsarBindingsX on JSIsar {
     int port,
     ffi.Pointer<ffi.Pointer<CWatchHandle>> handle,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<CWatchHandle>)>(
       symbol: 'isar_stop_watching')
   external void isar_stop_watching(
     ffi.Pointer<CWatchHandle> handle,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32)>(
       symbol: 'isar_write_null')
   external void isar_write_null(
     ffi.Pointer<CIsarWriter> writer,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32, ffi.Bool)>(
       symbol: 'isar_write_bool')
@@ -782,7 +782,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     bool value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32, ffi.Uint8)>(
       symbol: 'isar_write_byte')
@@ -791,7 +791,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     int value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32, ffi.Int32)>(
       symbol: 'isar_write_int')
@@ -800,7 +800,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     int value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32, ffi.Float)>(
       symbol: 'isar_write_float')
@@ -809,7 +809,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     double value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32, IsarI64)>(
       symbol: 'isar_write_long')
   external void isar_write_long(
@@ -817,7 +817,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     int value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
           ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32, ffi.Double)>(
       symbol: 'isar_write_double')
@@ -826,7 +826,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     double value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32,
           ffi.Pointer<CString>)>(symbol: 'isar_write_string')
@@ -835,7 +835,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     ffi.Pointer<CString> value,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarWriter>, ffi.Uint32,
           ffi.Pointer<ffi.Uint8>, ffi.Uint32)>(symbol: 'isar_write_byte_list')
@@ -845,7 +845,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<ffi.Uint8> value,
     int length,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CIsarWriter> Function(
           ffi.Pointer<CIsarWriter>, ffi.Uint32)>(symbol: 'isar_write_object')
@@ -853,7 +853,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarWriter> writer,
     int index,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarWriter>,
           ffi.Pointer<CIsarWriter>)>(symbol: 'isar_write_object_end')
@@ -861,7 +861,7 @@ extension IsarBindingsX on JSIsar {
     ffi.Pointer<CIsarWriter> writer,
     ffi.Pointer<CIsarWriter> embedded_writer,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CIsarWriter> Function(ffi.Pointer<CIsarWriter>, ffi.Uint32,
           ffi.Uint32)>(symbol: 'isar_write_list')
@@ -870,7 +870,7 @@ extension IsarBindingsX on JSIsar {
     int index,
     int length,
   );
-
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Void Function(ffi.Pointer<CIsarWriter>,
           ffi.Pointer<CIsarWriter>)>(symbol: 'isar_write_list_end')

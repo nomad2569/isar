@@ -18,9 +18,9 @@ FutureOr<IsarCoreBindings> initializePlatformBindings([
   final w = web.window as JSWindow;
   final promise = w.WebAssembly.instantiateStreaming(
     w.fetch(url),
-    {'env': <String, String>{}}.jsify(),
+    {'env': <String, String>{}}.toJSBox,
   ) as JSPromise;
-  final wasm = (await promise.toDart) as JSWasmModule;
+  final wasm = (await promise.toDart)! as JSWasmModule;
   return wasm.instance.exports;
 }
 
