@@ -8,6 +8,7 @@ import 'package:isar/src/web/ffi.dart' as ffi;
 import 'package:isar/src/web/interop.dart';
 
 extension IsarBindingsX on JSIsar {
+  @pragma('vm:entry-point')
   @ffi.Native<
       ffi.Pointer<CString> Function(
           ffi.Pointer<ffi.Uint16>, ffi.Uint32)>(symbol: 'isar_string')
